@@ -1,6 +1,6 @@
 # Guide: Microsoft Teams for a Laravel + Nuxt application
 
-This guide covers what it takes to connect your own web application to Microsoft Teams: notifications in the activity feed, a personal app with tabs and single sign-on, and a bot that receives messages and card actions. It explains the Microsoft side in full, including the raw HTTP calls, and points out where `mirkohaaser/teams` and `@mirkohaaser/nuxt-teams` take over.
+This guide covers what it takes to connect your own web application to Microsoft Teams: notifications in the activity feed, a personal app with tabs and single sign-on, and a bot that receives messages and card actions. It explains the Microsoft side in full, including the raw HTTP calls, and points out where `mirkohaaser/teams` and `nuxt-ms-teams` take over.
 
 Technical facts are as of July 2026 unless a page says otherwise. Microsoft changes this area often. The Office 365 connectors were switched off in May 2026, and the Bot Framework SDK was archived at the end of 2025. Places marked ⚠ are the ones most likely to change; check them against the current Microsoft documentation before you rely on them.
 
@@ -35,7 +35,7 @@ If you only want to notify users, you need 02, 03 and 04. Add the tab (05) when 
 | Validating the tab SSO token and issuing a session | `POST {route_prefix}/auth/sso` |
 | Routing messages and card actions | `Teams::onMessage()`, `Teams::command()`, `Teams::action()` |
 | Sending feed notifications and bot messages | Laravel notifications via `TeamsActivityChannel` (`toTeamsActivity()`) and `TeamsBotChannel` (`toTeamsBot()`) |
-| TeamsJS init, token exchange, consent retry, CSP | Nuxt layer `@mirkohaaser/nuxt-teams` with `useTeams()` |
+| TeamsJS init, token exchange, consent retry, CSP | Nuxt layer `nuxt-ms-teams` with `useTeams()` |
 | Checking a fresh setup | `php artisan teams:check`, `php artisan teams:send-test {user}` |
 | Linking a user by hand | `php artisan teams:link {user} {upn}` |
 

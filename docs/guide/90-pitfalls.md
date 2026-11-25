@@ -56,7 +56,7 @@ Entries are written during implementation, not afterwards. An entry is created t
 ### Tab stuck at "Loading" forever (Nuxt)
 - Symptom: the frame appears, the content never does. No error message, no console output.
 - Cause: two traps in a row. First, `definePageMeta({ layout: … })` only takes effect if `app.vue` wraps the page in `<NuxtLayout>`; otherwise the setting is silently ignored. Second, if the layout hides the page content until sign-in is done, a page that starts sign-in in its own `onMounted` is never mounted. Chicken and egg.
-- Fix: `<NuxtLayout>` in `app.vue`, and start sign-in in the layout, not in the pages. The `teams` layout of `@mirkohaaser/nuxt-teams` does this; `app.vue` remains your responsibility.
+- Fix: `<NuxtLayout>` in `app.vue`, and start sign-in in the layout, not in the pages. The `teams` layout of `nuxt-ms-teams` does this; `app.vue` remains your responsibility.
 - Cost: not recorded.
 - Area: Tab
 

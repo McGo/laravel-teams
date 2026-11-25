@@ -5,14 +5,14 @@
 
 ## Beschreibung
 
-`@mirkohaaser/nuxt-teams` liefert alles, was eine Seite braucht, um als Reiter in Teams zu laufen. Die Reiter selbst baut die Anwendung.
+`nuxt-ms-teams` liefert alles, was eine Seite braucht, um als Reiter in Teams zu laufen. Die Reiter selbst baut die Anwendung.
 
 ## Tickets
 
 ### [E-06.01] Layer-Gerüst
 - **Status:** erledigt
 - **Acceptance Criteria:**
-  - [x] `nuxt/package.json` mit Name `@mirkohaaser/nuxt-teams`, Lizenz MIT, Peer `nuxt` ^4, Abhängigkeit `@microsoft/teams-js` ^2
+  - [x] `nuxt/package.json` mit Name `nuxt-ms-teams`, Lizenz MIT, Peer `nuxt` ^4, Abhängigkeit `@microsoft/teams-js` ^2
   - [x] Keine Abhängigkeit zu Nuxt UI
   - [x] Runtime-Config `teams.ssoEndpoint` und `teams.apiBase`
 

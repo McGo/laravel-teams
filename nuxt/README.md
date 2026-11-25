@@ -1,4 +1,4 @@
-# @mirkohaaser/nuxt-teams
+# nuxt-ms-teams
 
 Nuxt 4 layer for Microsoft Teams personal tabs. It brings:
 
@@ -12,13 +12,13 @@ No dependency on Nuxt UI. If the app uses `@nuxtjs/color-mode`, the Teams themes
 ## Install
 
 ```bash
-npm install @mirkohaaser/nuxt-teams
+npm install nuxt-ms-teams
 ```
 
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-    extends: ['@mirkohaaser/nuxt-teams'],
+    extends: ['nuxt-ms-teams'],
     runtimeConfig: {
         public: {
             teams: {

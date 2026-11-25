@@ -24,7 +24,7 @@ await fetch("/api/teams/auth/sso", {
 
 ### With the Nuxt layer
 
-`@mirkohaaser/nuxt-teams` wraps this. Add it to `extends` in `nuxt.config.ts` and set the runtime config `teams.apiBase` and `teams.ssoEndpoint`. `useTeams()` then initialises TeamsJS, fetches the SSO token, exchanges it at `POST {route_prefix}/auth/sso`, retries after consent (three attempts, one second apart), reads `subPageId` from the deep link and maps the Teams theme onto the colour mode. The user type is generic (`useTeams<User>()`).
+`nuxt-ms-teams` wraps this. Add it to `extends` in `nuxt.config.ts` and set the runtime config `teams.apiBase` and `teams.ssoEndpoint`. `useTeams()` then initialises TeamsJS, fetches the SSO token, exchanges it at `POST {route_prefix}/auth/sso`, retries after consent (three attempts, one second apart), reads `subPageId` from the deep link and maps the Teams theme onto the colour mode. The user type is generic (`useTeams<User>()`).
 
 Outside Teams, `app.initialize()` never resolves. `useTeams()` puts a timeout in front and shows a clear message instead of loading forever. A diagnostic line with host, client type and last error is shown in the tab itself, because hardly anyone can reach the developer tools of the desktop client.
 

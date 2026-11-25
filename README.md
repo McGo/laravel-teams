@@ -11,7 +11,7 @@ The code is extracted from an application that has run this setup in production 
 ## What you get
 
 - `mirkohaaser/teams` (Composer): token validation for the Bot Connector and for tab SSO, a messaging endpoint with a registry for commands and card actions, a bot client for proactive messages, notification channels for the activity feed and the bot chat, manifest generation from config, Artisan commands for setup and diagnosis, and `Teams::fake()` for your tests.
-- `@mirkohaaser/nuxt-teams` (npm, in [`nuxt/`](nuxt/)): a Nuxt layer with `useTeams()`, a consent page, a bare `teams` layout and the CSP header that lets Teams frame your tabs.
+- `nuxt-ms-teams` (npm, in [`nuxt/`](nuxt/)): a Nuxt layer with `useTeams()`, a consent page, a bare `teams` layout and the CSP header that lets Teams frame your tabs.
 
 Single-tenant registrations only, one Entra app and one Teams app per installation. Microsoft stopped creating multi-tenant bots on 31 July 2025. Posting to channels through Workflows or Power Automate is out of scope.
 

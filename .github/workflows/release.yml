@@ -1,0 +1,44 @@
+# Release on a tag vX.Y.Z.
+#
+# Packagist picks up the tag through its GitHub hook; nothing to do here.
+# This workflow runs the tests and publishes the Nuxt layer to npm with the
+# version from the tag, so Composer and npm always carry the same number.
+#
+#   git tag v0.1.0 && git push --tags
+#
+# Needs the repository secret NPM_TOKEN (granular access token with publish
+# rights). id-token: write lets npm attach a provenance attestation.
+
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml
+
+  npm:
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: nuxt
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Take the version from the tag
+        run: npm version "${GITHUB_REF_NAME#v}" --no-git-tag-version --allow-same-version
+
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

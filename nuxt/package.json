@@ -1,5 +1,5 @@
 {
-  "name": "@mirkohaaser/nuxt-teams",
+  "name": "nuxt-ms-teams",
   "version": "0.0.0",
   "description": "Nuxt layer for Microsoft Teams personal tabs: SSO, consent page, theme and frame-ancestors CSP.",
   "license": "MIT",

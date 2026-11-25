@@ -31,14 +31,14 @@ laravel-teams/
 ├── config/teams.php
 ├── database/migrations/
 ├── tests/
-├── nuxt/                Nuxt-Layer @mirkohaaser/nuxt-teams (npm)
+├── nuxt/                Nuxt-Layer nuxt-ms-teams (npm)
 └── docs/
     ├── concept/         Konzepte (deutsch)
     ├── epics/
     └── guide/           Einrichtung und Fallstricke (englisch, öffentlich)
 ```
 
-Die Nuxt-Seite bekommt den Scope `@mirkohaaser` ohne Bindestrich. `@mirko-haaser` ist in den Anwendungen per `.npmrc` auf die private GitLab-Registry des BaseKits umgeleitet. Ein öffentliches Paket im selben Scope würde dort gesucht und nicht gefunden.
+Die Nuxt-Seite heißt `nuxt-ms-teams` und hat keinen Scope, wie `nuxt-ui-basekit` unter demselben npm-Konto. `@mirko-haaser` scheidet aus, weil die Anwendungen diesen Scope per `.npmrc` auf die GitLab-Registry umleiten; ein neuer Scope bräuchte eine npm-Organisation.
 
 Über `.gitattributes` bleiben `nuxt/`, `docs/` und `tests/` aus dem Composer-Archiv heraus.
 
@@ -129,7 +129,7 @@ Für Tests der Anwendung gibt es `Teams::fake()`. Es fängt ausgehende Aktivitä
 
 ## Der Nuxt-Layer
 
-`@mirkohaaser/nuxt-teams` ist ein Nuxt-Layer ohne Abhängigkeit zu Nuxt UI. Er bringt mit:
+`nuxt-ms-teams` ist ein Nuxt-Layer ohne Abhängigkeit zu Nuxt UI. Er bringt mit:
 
 - `useTeams()`: initialisiert `@microsoft/teams-js`, holt das SSO-Token und tauscht es am Endpunkt der API, wiederholt nach erteiltem Consent mit kurzer Pause, liest die `subPageId` aus dem Deep Link und setzt das Teams-Theme auf den Color-Mode. Fehlerdiagnose steht im Tab selbst, weil an die Entwicklertools des Desktop-Clients kaum jemand herankommt.
 - das Layout `teams` ohne Navigation der Anwendung,
@@ -158,6 +158,5 @@ Ihre Tabellen heißen schon `teams_identities`, `teams_notifications` und `teams
 
 ## Offene Punkte
 
-- Ist der npm-Scope `@mirkohaaser` frei, und gibt es ein Packagist-Konto für den Vendor `mirkohaaser`?
 - Name des GitHub-Repos. Vorschlag: `laravel-teams`.
 - Kanal- und Gruppenchat-Szenarien sind im Datenmodell vorgesehen, aber erst mit dem ersten echten Bedarf zu testen.
