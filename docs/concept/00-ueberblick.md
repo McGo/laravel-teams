@@ -1,6 +1,6 @@
 # 00 — Überblick: mirkohaaser/teams
 
-Status: Entwurf (2026-11-25)
+Status: Entwurf (2026-11-25), Epics 01–09 angelegt
 
 Das Paket bindet eine Laravel-Anwendung mit Nuxt-Oberfläche an Microsoft Teams an. Eine Anwendung bekommt damit eine eigene Teams-App mit einem Bot, der Nachrichten und Kartenaktionen entgegennimmt und von sich aus schreibt, mit Benachrichtigungen im Aktivitätsfeed und mit einem Symbol in der linken Teams-Leiste, hinter dem mehrere Reiter liegen.
 
