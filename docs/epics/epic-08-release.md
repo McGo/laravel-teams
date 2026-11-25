@@ -21,7 +21,7 @@ Ein Git-Tag veröffentlicht beide Pakete mit derselben Version.
 - **Acceptance Criteria:**
   - [x] Name `nuxt-ms-teams` ohne Scope unter dem npm-Konto `mirko-haaser`, wie `nuxt-ui-basekit`
   - [x] GitHub Action `release.yml` veröffentlicht `nuxt/` bei Tag `v*` mit der Tag-Version, Provenance an
-  - [ ] npm-Token als Repository-Secret `NPM_TOKEN` (Granular Access Token mit Publish-Recht)
+  - [ ] Trusted Publisher auf npmjs.com eingetragen (Repo `McGo/laravel-teams`, Workflow `release.yml`), kein Token, wie beim BaseKit. Setzt voraus, dass `nuxt-ms-teams` einmal von Hand veröffentlicht ist
 
 ### [E-08.03] Erste Version
 - **Status:** offen

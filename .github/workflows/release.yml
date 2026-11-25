@@ -6,8 +6,10 @@
 #
 #   git tag v0.1.0 && git push --tags
 #
-# Needs the repository secret NPM_TOKEN (granular access token with publish
-# rights). id-token: write lets npm attach a provenance attestation.
+# Publishing uses npm trusted publishing (OIDC): npmjs.com trusts this
+# workflow file, no token is stored anywhere. id-token: write is what makes
+# that work, and it also adds the provenance attestation. Needs npm 11.5+,
+# which ships with Node 24.
 
 name: release
 
@@ -40,5 +42,3 @@ jobs:
         run: npm version "${GITHUB_REF_NAME#v}" --no-git-tag-version --allow-same-version
 
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
