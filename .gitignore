@@ -1,0 +1,8 @@
+vendor/
+node_modules/
+.env
+.phpunit.result.cache
+composer.lock
+nuxt/.nuxt/
+nuxt/.output/
+.DS_Store
