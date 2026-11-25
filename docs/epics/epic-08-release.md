@@ -13,7 +13,7 @@ Ein Git-Tag veröffentlicht beide Pakete mit derselben Version.
 - **Status:** offen
 - **Acceptance Criteria:**
   - [x] Paket `mirkohaaser/teams` auf Packagist angelegt (2026-11-25)
-  - [ ] GitHub-Hook aktiv (Tag erscheint ohne Handgriff auf Packagist)
+  - [x] GitHub-Hook aktiv (`packagist.org/api/github` im Repo eingetragen)
   - [ ] `composer require mirkohaaser/teams` in einer frischen Laravel-Anwendung erfolgreich
 
 ### [E-08.02] npm
