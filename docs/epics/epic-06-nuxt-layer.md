@@ -1,7 +1,7 @@
 # Epic 06: Nuxt-Layer
 
 > Abgeleitet aus: [00 Überblick](../concept/00-ueberblick.md), Abschnitt „Der Nuxt-Layer“
-> Status: **offen**
+> Status: **erledigt** (2026-11-25)
 
 ## Beschreibung
 
@@ -10,31 +10,31 @@
 ## Tickets
 
 ### [E-06.01] Layer-Gerüst
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] `nuxt/package.json` mit Name `@mirkohaaser/nuxt-teams`, Lizenz MIT, Peer `nuxt` ^4, Abhängigkeit `@microsoft/teams-js` ^2
-  - [ ] Keine Abhängigkeit zu Nuxt UI
-  - [ ] Runtime-Config `teams.ssoEndpoint` und `teams.apiBase`
+  - [x] `nuxt/package.json` mit Name `@mirkohaaser/nuxt-teams`, Lizenz MIT, Peer `nuxt` ^4, Abhängigkeit `@microsoft/teams-js` ^2
+  - [x] Keine Abhängigkeit zu Nuxt UI
+  - [x] Runtime-Config `teams.ssoEndpoint` und `teams.apiBase`
 
 ### [E-06.02] useTeams()
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] Übernommen und von Anwendungs-Typen gelöst: Initialisierung, SSO-Token holen und tauschen, Wiederholung nach Consent (3 Versuche, 1 s Pause), `subPageId`, Theme
-  - [ ] Theme `dark` und `contrast` setzen den Color-Mode, wenn `@nuxtjs/color-mode` vorhanden ist
-  - [ ] Typ des Users generisch (`useTeams<User>()`)
-  - [ ] Diagnosezeile mit Host, Client-Typ und letztem Fehler
-  - [ ] Außerhalb von Teams klare Meldung statt endlosem Laden
+  - [x] Übernommen und von Anwendungs-Typen gelöst: Initialisierung, SSO-Token holen und tauschen, Wiederholung nach Consent (3 Versuche, 1 s Pause), `subPageId`, Theme
+  - [x] Theme `dark` und `contrast` setzen den Color-Mode, wenn `@nuxtjs/color-mode` vorhanden ist
+  - [x] Typ des Users generisch (`useTeams<User>()`)
+  - [x] Diagnosezeile mit Host, Client-Typ und letztem Fehler
+  - [x] Außerhalb von Teams klare Meldung statt endlosem Laden
 
 ### [E-06.03] Layout, Consent-Seite, CSP
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] Layout `teams` ohne Navigation
-  - [ ] Seite `/teams/consent`, die den Consent-Dialog abschließt
-  - [ ] Route-Rule für `/teams/**` mit `frame-ancestors` für die Teams-, Microsoft-365- und Outlook-Hosts
-  - [ ] `/teams/**` client-only, damit SSG-Anwendungen den Layer nutzen können
+  - [x] Layout `teams` ohne Navigation
+  - [x] Seite `/teams/consent`, die den Consent-Dialog abschließt
+  - [x] Route-Rule für `/teams/**` mit `frame-ancestors` für die Teams-, Microsoft-365- und Outlook-Hosts
+  - [x] `/teams/**` client-only, damit SSG-Anwendungen den Layer nutzen können
 
 ### [E-06.04] Spielwiese
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] `nuxt/playground` mit zwei Beispielreitern, lauffähig über einen Dev-Tunnel
-  - [ ] Anleitung im Guide
+  - [x] `nuxt/playground` mit zwei Beispielreitern, lauffähig über einen Dev-Tunnel
+  - [x] Anleitung im Guide

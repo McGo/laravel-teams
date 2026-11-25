@@ -1,0 +1,89 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('teams_identities', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $this->userColumn($table, nullable: false);
+            $table->string('tenant_id', 64);
+            $table->string('aad_object_id', 64);
+            $table->string('upn')->nullable();
+            $table->timestampTz('installed_at')->nullable();
+            $table->timestampTz('last_seen_at')->nullable();
+            $table->timestampsTz();
+
+            $table->unique(['tenant_id', 'aad_object_id']);
+            $table->index('user_id');
+        });
+
+        Schema::create('teams_conversations', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->foreignUuid('teams_identity_id')->nullable()->constrained('teams_identities')->nullOnDelete();
+            $table->string('tenant_id', 64)->nullable();
+            $table->string('type', 20); // personal | groupChat | channel
+            $table->string('service_url');
+            $table->string('conversation_id', 512);
+            $table->timestampTz('last_activity_at')->nullable();
+            $table->timestampsTz();
+
+            $table->unique(['service_url', 'conversation_id']);
+            $table->index(['teams_identity_id', 'type']);
+        });
+
+        Schema::create('teams_notifications', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $this->userColumn($table, nullable: false);
+            $table->string('type', 64);
+            $table->string('subject_key', 191);
+            $table->string('status', 20); // sent | failed | skipped
+            $table->unsignedSmallInteger('http_status')->nullable();
+            $table->text('error')->nullable();
+            $table->timestampTz('sent_at')->nullable();
+            $table->timestampsTz();
+
+            $table->index(['user_id', 'type', 'subject_key']);
+            $table->index('sent_at');
+        });
+
+        Schema::create('teams_actions', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $this->userColumn($table, nullable: true);
+            $table->foreignUuid('teams_identity_id')->nullable()->constrained('teams_identities')->nullOnDelete();
+            $table->string('kind', 20); // command | message | card
+            $table->string('name', 100);
+            $table->string('status', 20); // ok | failed | unknown
+            $table->unsignedInteger('duration_ms')->nullable();
+            $table->text('error')->nullable();
+            $table->timestampTz('created_at');
+
+            $table->index(['user_id', 'created_at']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('teams_actions');
+        Schema::dropIfExists('teams_notifications');
+        Schema::dropIfExists('teams_conversations');
+        Schema::dropIfExists('teams_identities');
+    }
+
+    private function userColumn(Blueprint $table, bool $nullable): void
+    {
+        $column = match (config('teams.user_key_type', 'bigint')) {
+            'uuid' => $table->uuid('user_id'),
+            'ulid' => $table->ulid('user_id'),
+            default => $table->unsignedBigInteger('user_id'),
+        };
+
+        if ($nullable) {
+            $column->nullable();
+        }
+    }
+};

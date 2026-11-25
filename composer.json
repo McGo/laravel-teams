@@ -1,0 +1,67 @@
+{
+    "name": "mirkohaaser/teams",
+    "description": "Microsoft Teams for Laravel: bot with commands and card actions, activity feed notifications, personal tabs with SSO.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "microsoft-teams",
+        "teams-bot",
+        "adaptive-cards",
+        "bot-framework",
+        "graph"
+    ],
+    "authors": [
+        {
+            "name": "Mirko Haaser",
+            "homepage": "https://www.mirko-haaser.de"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "firebase/php-jwt": "^6.10|^7.0",
+        "laravel/framework": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.18",
+        "laravel/sanctum": "^4.0",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^10.0|^11.0",
+        "phpunit/phpunit": "^11.5|^12.0"
+    },
+    "suggest": {
+        "laravel/sanctum": "Default session issuer for the tab SSO endpoint"
+    },
+    "autoload": {
+        "psr-4": {
+            "MirkoHaaser\\Teams\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MirkoHaaser\\Teams\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MirkoHaaser\\Teams\\TeamsServiceProvider"
+            ],
+            "aliases": {
+                "Teams": "MirkoHaaser\\Teams\\Facades\\Teams"
+            }
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": [
+            "pint --test",
+            "phpstan analyse --memory-limit=1G"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

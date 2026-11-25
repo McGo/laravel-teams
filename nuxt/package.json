@@ -1,0 +1,50 @@
+{
+  "name": "@mirkohaaser/nuxt-teams",
+  "version": "0.0.0",
+  "description": "Nuxt layer for Microsoft Teams personal tabs: SSO, consent page, theme and frame-ancestors CSP.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "files": [
+    "nuxt.config.ts",
+    "app/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "nuxt",
+    "nuxt-layer",
+    "microsoft-teams",
+    "teams-js",
+    "sso"
+  ],
+  "scripts": {
+    "dev": "nuxi dev playground",
+    "build": "nuxi build playground",
+    "generate": "nuxi generate playground",
+    "dev:prepare": "nuxi prepare playground",
+    "typecheck": "nuxi typecheck playground"
+  },
+  "dependencies": {
+    "@microsoft/teams-js": "^2.59.0"
+  },
+  "peerDependencies": {
+    "@nuxtjs/color-mode": "^3.0.0",
+    "nuxt": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nuxtjs/color-mode": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "nuxt": "^4.2.0",
+    "typescript": "^5.9.0",
+    "vue-tsc": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McGo/laravel-teams.git",
+    "directory": "nuxt"
+  }
+}

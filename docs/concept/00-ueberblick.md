@@ -1,6 +1,6 @@
 # 00 — Überblick: mirkohaaser/teams
 
-Status: Entwurf (2026-11-25), Epics 01–09 angelegt
+Status: umgesetzt bis auf Veröffentlichung und Umstieg (2026-11-25), Epics 01–07 erledigt, 08 und 09 offen
 
 Das Paket bindet eine Laravel-Anwendung mit Nuxt-Oberfläche an Microsoft Teams an. Eine Anwendung bekommt damit eine eigene Teams-App mit einem Bot, der Nachrichten und Kartenaktionen entgegennimmt und von sich aus schreibt, mit Benachrichtigungen im Aktivitätsfeed und mit einem Symbol in der linken Teams-Leiste, hinter dem mehrere Reiter liegen.
 
@@ -63,6 +63,8 @@ Ist `enabled` aus, laufen Kanäle, Befehle und Endpunkte folgenlos durch. Der Me
 
 In der Ursprungsanwendung hängt die Konversation als zwei Spalten an der Identität. Das reicht für den persönlichen Chat, aber nicht für einen Bot, der in einem Gruppenchat oder Kanal angesprochen wird. Die eigene Tabelle kostet jetzt eine Migration und erspart später einen Umbau.
 
+`user_id` hat keinen Fremdschlüssel, weil Tabelle und Schlüsseltyp der Anwendung gehören. Den Typ (`bigint`, `uuid`, `ulid`) liest die Migration aus `teams.user_key_type`.
+
 Die Migrationen werden veröffentlicht, nicht automatisch geladen. Eine Anwendung mit vorhandenen Tabellen übernimmt sie über eine eigene Überleitungs-Migration (siehe Umstieg).
 
 ### Eingang: der Messaging-Endpunkt
@@ -111,7 +113,7 @@ Für Tests der Anwendung gibt es `Teams::fake()`. Es fängt ausgehende Aktivitä
 
 ### Karten und Links
 
-`Cards` ist ein kleiner Baukasten für Adaptive Cards in Version 1.2: Text, Faktenliste, Knöpfe. `Action.Execute` bekommt immer einen `fallback` auf `Action.Submit`, weil nicht jeder Teams-Client den Invoke zustellt. Wer mehr braucht, übergibt das Karten-Array direkt.
+`Cards` ist ein kleiner Baukasten für Adaptive Cards in Version 1.2, mehr zeigt die mobile Teams-App nicht an: Text, Faktenliste, Knöpfe, Ergebniskarte. Knöpfe sind `Action.Submit`. In der Ursprungsanwendung hat der Teams-Client `Action.Execute` nicht an den Bot weitergereicht, `Action.Submit` kam jedes Mal an. `Cards::execute()` gibt es trotzdem, mit `fallback` auf `Action.Submit` und Kartenversion 1.4. Wer mehr braucht, übergibt das Karten-Array direkt.
 
 `DeepLink` baut Links in einen Reiter mit optionaler `subEntityId` und nimmt nur Reiter an, die im Manifest-Abschnitt stehen.
 

@@ -1,7 +1,7 @@
 # Epic 07: Guide
 
 > Abgeleitet aus: [00 Überblick](../concept/00-ueberblick.md), Abschnitt „Dokumentation“
-> Status: **offen**
+> Status: **erledigt bis auf die Nachprüfung der ⚠-Stellen** (2026-11-25)
 
 ## Beschreibung
 
@@ -10,21 +10,21 @@ Die Blaupause der Ursprungsanwendung wird zu einem öffentlichen englischen Guid
 ## Tickets
 
 ### [E-07.01] Blaupause übertragen
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] Seiten `01-decisions` bis `06-bot` übersetzt und auf das Paket bezogen (Config-Schlüssel und Befehle statt Handarbeit)
-  - [ ] Keine Kunden-, Projekt- oder Produktnamen, keine echten IDs außer den sieben Host-Client-IDs von Microsoft, Beispiele mit `contoso.com`
-  - [ ] ⚠-Stellen vom Stand Juli 2026 gegen die aktuelle Microsoft-Dokumentation geprüft und datiert
+  - [x] Seiten `01-decisions` bis `06-bot` übersetzt und auf das Paket bezogen (Config-Schlüssel und Befehle statt Handarbeit)
+  - [x] Keine Kunden-, Projekt- oder Produktnamen, keine echten IDs außer den sieben Host-Client-IDs von Microsoft, Beispiele mit `contoso.com`
+  - [ ] ⚠-Stellen vom Stand Juli 2026 gegen die aktuelle Microsoft-Dokumentation geprüft und datiert. Teilweise: geprüft sind das Ende der Multi-Tenant-Bots, die Abschaltung der Connectors und die entfallene Graph-Abrechnung. Host-Client-IDs, CSP-Liste, Schema 1.29 und Admin-Center-Menüs sind ungeprüft übernommen
 
 ### [E-07.02] Fallstrick-Journal
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] `90-pitfalls.md` mit allen Einträgen aus der Ursprungsanwendung, anonymisiert
-  - [ ] Format beibehalten: Symptom, Ursache, Lösung, Kosten, Bereich
-  - [ ] Abschnitt „Business Basic“: was in einem kleinen Tenant anders ist (Upload eigener Apps, Admin-Rollen, Propagationszeiten)
+  - [x] `90-pitfalls.md` mit allen Einträgen aus der Ursprungsanwendung, anonymisiert
+  - [x] Format beibehalten: Symptom, Ursache, Lösung, Kosten, Bereich
+  - [x] Abschnitt „Business Basic“: was in einem kleinen Tenant anders ist (Upload eigener Apps, Admin-Rollen, Propagationszeiten). Nichts davon in einem Business-Basic-Tenant getestet, der Abschnitt sagt das
 
 ### [E-07.03] Schnellstart
-- **Status:** offen
+- **Status:** erledigt
 - **Acceptance Criteria:**
-  - [ ] README mit Installation, Minimal-Config, einem Befehl, einer Aktion und einem Reiter
-  - [ ] Checkliste für den Admin des Ziel-Tenants als eigene Seite, damit sie sich weiterreichen lässt
+  - [x] README mit Installation, Minimal-Config, einem Befehl, einer Aktion und einem Reiter
+  - [x] Checkliste für den Admin des Ziel-Tenants als eigene Seite, damit sie sich weiterreichen lässt

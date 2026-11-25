@@ -6,3 +6,4 @@ composer.lock
 nuxt/.nuxt/
 nuxt/.output/
 .DS_Store
+.phpunit.cache/
